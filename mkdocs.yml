@@ -1,1 +1,18 @@
-site_name: My Docs
+site_name: embedding
+
+nav:
+  - Recherches théoriques: 
+      - Principes de l'embedding: principes.md
+      - Les différents types d'embedding: 
+        - Frequency-Based Embeddings: frequency.md
+        - Prediction-Based Embeddings: prediction.md
+        - Contextualized Word Embeddings: contextualized.md
+      - Création des embeddings: creation.md
+
+  - Expérimentations: 
+      - Démarches: demarches.md
+      - Résultats: resultats.md
+      
+
+
+theme: readthedocs
