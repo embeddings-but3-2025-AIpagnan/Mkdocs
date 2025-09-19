@@ -3,7 +3,7 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - master  # déploie à chaque push sur master (ou changer en main)
+      - main  # déploie à chaque push sur master (ou changer en main)
   workflow_dispatch: # possibilité de lancer le workflow manuellement depuis Actions
 
 permissions:
