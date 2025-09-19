@@ -1,0 +1,30 @@
+name: Build GitHub Pages
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs: 
+  build_mkdocs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install \
+            mkdocs-material
+      - run: mkdocs gh-deploy --force
+
+ 
+# from https://thomasthornton.cloud/2024/05/01/deploying-mkdocs-to-github-pages-with-github-actions/
