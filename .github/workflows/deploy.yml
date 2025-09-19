@@ -1,19 +1,69 @@
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
 name: Build GitHub Pages
 on:
   push:
     branches:
       - main
-
+    paths:
+      - 'example-mkdocs/**'
   workflow_dispatch:
 permissions:
   contents: write
   pages: write
   id-token: write
-
-jobs: 
+ 
+jobs:
   build_mkdocs:
     runs-on: ubuntu-latest
-
+ 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -21,10 +71,28 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: 3.9
       - run: pip install \
             mkdocs-material
-      - run: mkdocs gh-deploy --force
-
+      - run: mkdocs gh-deploy --config-file example-mkdocs/mkdocs.yml --force
  
-# from https://thomasthornton.cloud/2024/05/01/deploying-mkdocs-to-github-pages-with-github-actions/
+  deploy_mkdocs:
+    needs: build_mkdocs
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
