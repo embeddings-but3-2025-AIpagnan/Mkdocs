@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Création des embeddings - embedding</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Cr\u00e9ation des embeddings";
+        var mkdocs_page_input_path = "creation.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> embedding
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Recherches théoriques</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../principes/">Principes de l'embedding</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Les différents types d'embedding</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../frequency/">Frequency-Based Embeddings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../prediction/">Prediction-Based Embeddings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../contextualized/">Contextualized Word Embeddings</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Création des embeddings</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-preparation-des-donnees">1. Préparation des données :</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-construction-dun-objectif-dapprentissage">2. Construction d’un objectif d’apprentissage :</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-entrainement-dun-modele">3. Entraînement d’un modèle :</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-extraction-des-vecteurs-appris">4. Extraction des vecteurs appris :</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Expérimentations</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../demarches/">Démarches</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../resultats/">Résultats</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">embedding</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Recherches théoriques</li>
+      <li class="breadcrumb-item active">Création des embeddings</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="comment-les-embeddings-sont-crees">Comment les embeddings sont créés</h1>
+<p>Les embeddings sont généralement appris automatiquement à partir de grands corpus de texte, en utilisant des techniques d’apprentissage automatique ou d’apprentissage profond.</p>
+<p>L’objectif principal est de trouver une représentation numérique pour chaque mot (ou phrase, ou document) qui capture ses relations avec les autres mots dans le langage.</p>
+<p>Étapes générales de création d’un embedding</p>
+<h2 id="1-preparation-des-donnees">1. Préparation des données :</h2>
+<p>Un grand corpus de texte est collecté (par exemple : Wikipedia, livres, articles...).
+Le texte est nettoyé, découpé en phrases, puis en mots (tokenisation)
+Une "fenêtre de contexte" est définie : par exemple, on peut regarder les 5 mots autour de chaque mot cible.</p>
+<h2 id="2-construction-dun-objectif-dapprentissage">2. Construction d’un objectif d’apprentissage :</h2>
+<p>On choisit un objectif à optimiser. Par exemple :
+Prédire un mot cible à partir de son contexte (CBOW).
+Prédire le contexte à partir d’un mot cible (Skip-gram).
+Ou bien apprendre une fonction qui approxime les relations de cooccurrence entre mots (GloVe).
+Ce sont des tâches simples, mais qui forcent le modèle à comprendre les relations entre mots pour réussir.</p>
+<h2 id="3-entrainement-dun-modele">3. Entraînement d’un modèle :</h2>
+<p>On utilise un petit réseau de neurones (dans Word2Vec) ou une architecture plus complexe (LSTM pour ELMo, Transformer pour BERT).
+Le modèle ajuste progressivement les vecteurs associés à chaque mot, de manière à minimiser une fonction de perte (par exemple : erreur de prédiction du mot).
+Pendant cet entraînement, chaque mot est associé à un vecteur qui évolue à chaque itération pour mieux refléter ses usages dans le corpus.</p>
+<h2 id="4-extraction-des-vecteurs-appris">4. Extraction des vecteurs appris :</h2>
+<p>Une fois l’entraînement terminé, chaque mot a un vecteur numérique stable : c’est son embedding.
+Ces vecteurs peuvent ensuite être utilisés dans d’autres modèles pour différentes tâches (analyse de sentiments, traduction automatique, résumé de texte, etc.).</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../contextualized/" class="btn btn-neutral float-left" title="Contextualized Word Embeddings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../demarches/" class="btn btn-neutral float-right" title="Démarches">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../contextualized/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../demarches/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
