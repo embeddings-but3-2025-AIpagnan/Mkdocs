@@ -12,6 +12,12 @@ nav:
   - Expérimentations: 
       - Démarches: demarches.md
       - Résultats: resultats.md
+  - Application:
+      - Recherches:
+          - Introduction: contexte_technos.md
+          - Front-end: integration-js_technos.md
+          - Intégration JS: integration-js_technos.md
+          - Conclusion: conclusion_technos.md
       
 
 
