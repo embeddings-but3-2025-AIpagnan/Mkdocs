@@ -15,7 +15,7 @@ nav:
   - Application:
       - Recherches:
           - Introduction: contexte_technos.md
-          - Front-end: integration-js_technos.md
+          - Front-end: front-end_technos.md
           - Intégration JS: integration-js_technos.md
           - Conclusion: conclusion_technos.md
       
