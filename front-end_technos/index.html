@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Démarches - embedding</title>
+    <title>Pourquoi nous avons choisi Astro ? - embedding</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "D\u00e9marches";
-        var mkdocs_page_input_path = "demarches.md";
+        var mkdocs_page_name = "Pourquoi nous avons choisi Astro ?";
+        var mkdocs_page_input_path = "front-end_technos.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -57,12 +57,8 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Expérimentations</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Démarches</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#echantillion-du-corpus-de-synonymes">échantillion du corpus de synonymes</a>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../demarches/">Démarches</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../resultats/">Résultats</a>
                   </li>
@@ -96,8 +92,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Expérimentations</li>
-      <li class="breadcrumb-item active">Démarches</li>
+      <li class="breadcrumb-item active">Pourquoi nous avons choisi Astro ?</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -106,25 +101,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="demarches-de-test">Démarches de test</h1>
-<p>dans l'optique de tester les algorithmes d'embedding, nous avons mis en place un protocole de test, celui consiste à établir un corpus de synonymes, d'antonymes, d'holonymes et de mots associés et d'ainsi calculer la proximité entre chacun des éléments par le modèle ollama afin de calculer la moyenne de chaque échantillon pour permettre de vérifier l'éfficacité du modèle.
-Théoriquement, les synonymes devrait avoir le meilleur résultats conntrairement aux antonymes. </p>
-<h2 id="echantillion-du-corpus-de-synonymes">échantillion du corpus de synonymes</h2>
-<ul>
-<li><code>à,chez,dans,parmi
-abaca,chanvre,chènevière,filasse,jute
-abaissable,abattable,inclinable
-abaissant,avilissant,humiliant,mortifiant,dégradant,vexant,honteux,écrasant,blessant
-abaissé,avili,rabaissé,déconsidéré,diminué,déchu,disqualifié,discrédité,dévalorisé,dévalué
-abaisse-langue,spatule,manche</code></li>
-</ul>
+                <h1 id="pourquoi-nous-avons-choisi-astro">Pourquoi nous avons choisi Astro ?</h1>
+<p>Astro s’est rapidement imposé pour plusieurs raisons stratégiques :</p>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Observation</th>
+<th>Impact sur le projet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance initiale</strong></td>
+<td>Rendu HTML statique, 0 JS par défaut</td>
+<td>Temps de chargement ultra rapide</td>
+</tr>
+<tr>
+<td><strong>Poids du bundle</strong></td>
+<td>Très faible (JS uniquement sur les composants interactifs)</td>
+<td>Réduction du coût réseau et meilleure UX</td>
+</tr>
+<tr>
+<td><strong>Simplicité du code</strong></td>
+<td>Structure claire, séparation nette contenu / logique</td>
+<td>Maintenance facilitée</td>
+</tr>
+<tr>
+<td><strong>SEO et accessibilité</strong></td>
+<td>Excellent grâce au pré-rendu HTML</td>
+<td>Meilleur référencement naturel</td>
+</tr>
+<tr>
+<td><strong>Facilité d’intégration</strong></td>
+<td>Support hybride et partiel</td>
+<td>Intégration fluide avec notre stack existante</td>
+</tr>
+<tr>
+<td><strong>Écosystème en croissance</strong></td>
+<td>Plugins officiels et communauté active</td>
+<td>Améliorations et support à long terme</td>
+</tr>
+</tbody>
+</table>
+<p>Nous avons retenu Astro car il permet de <strong>livrer un site ultra performant dès le premier rendu</strong>, tout en restant suffisamment flexible pour intégrer des composants dynamiques grace à astro islands.<br />
+C’est une approche “<strong>content-first</strong>” qui correspond parfaitement à notre besoin : beaucoup de contenu statique, enrichi par quelques zones interactives.</p>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../creation/" class="btn btn-neutral float-left" title="Création des embeddings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../resultats/" class="btn btn-neutral float-right" title="Résultats">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -146,10 +170,6 @@ abaisse-langue,spatule,manche</code></li>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../creation/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../resultats/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

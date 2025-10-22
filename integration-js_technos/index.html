@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Démarches - embedding</title>
+    <title>Front-end - embedding</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "D\u00e9marches";
-        var mkdocs_page_input_path = "demarches.md";
+        var mkdocs_page_name = "Front-end";
+        var mkdocs_page_input_path = "integration-js_technos.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -57,25 +57,29 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Expérimentations</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Démarches</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#echantillion-du-corpus-de-synonymes">échantillion du corpus de synonymes</a>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../demarches/">Démarches</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../resultats/">Résultats</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Application</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" >Recherches</a>
-    <ul>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Recherches</a>
+    <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="../contexte_technos/">Introduction</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../integration-js_technos/">Front-end</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Front-end</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#nos-motivations-principales">Nos motivations principales :</a>
+    </li>
+    </ul>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../integration-js_technos/">Front-end</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Front-end</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#nos-motivations-principales">Nos motivations principales :</a>
+    </li>
+    </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../conclusion_technos/">Conclusion</a>
                 </li>
@@ -96,8 +100,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Expérimentations</li>
-      <li class="breadcrumb-item active">Démarches</li>
+          <li class="breadcrumb-item">Application</li>
+          <li class="breadcrumb-item">Recherches</li>
+      <li class="breadcrumb-item active">Front-end</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -106,24 +111,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="demarches-de-test">Démarches de test</h1>
-<p>dans l'optique de tester les algorithmes d'embedding, nous avons mis en place un protocole de test, celui consiste à établir un corpus de synonymes, d'antonymes, d'holonymes et de mots associés et d'ainsi calculer la proximité entre chacun des éléments par le modèle ollama afin de calculer la moyenne de chaque échantillon pour permettre de vérifier l'éfficacité du modèle.
-Théoriquement, les synonymes devrait avoir le meilleur résultats conntrairement aux antonymes. </p>
-<h2 id="echantillion-du-corpus-de-synonymes">échantillion du corpus de synonymes</h2>
-<ul>
-<li><code>à,chez,dans,parmi
-abaca,chanvre,chènevière,filasse,jute
-abaissable,abattable,inclinable
-abaissant,avilissant,humiliant,mortifiant,dégradant,vexant,honteux,écrasant,blessant
-abaissé,avili,rabaissé,déconsidéré,diminué,déchu,disqualifié,discrédité,dévalorisé,dévalué
-abaisse-langue,spatule,manche</code></li>
-</ul>
+                <h1 id="pourquoi-nous-avons-choisi-solid">Pourquoi nous avons Choisi Solid ?</h1>
+<p>Certaines fonctionnalités de l’application nécessitent une interactivité locale due aux tableaux nécessitant de pouvoir être modifiables.<br />
+Pour ces cas spécifiques, nous avons choisi <strong>SolidJS</strong>, intégré via le système des <em>Astro Islands</em>.</p>
+<h2 id="nos-motivations-principales">Nos motivations principales :</h2>
+<table>
+<thead>
+<tr>
+<th>Critère</th>
+<th>Observation</th>
+<th>Avantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance runtime</strong></td>
+<td>Solid est reconnu pour sa réactivité exceptionnelle</td>
+<td>Expérience fluide et instantanée</td>
+</tr>
+<tr>
+<td><strong>Poids du bundle</strong></td>
+<td>Très léger</td>
+<td>Interactivité sans compromettre la vitesse globale</td>
+</tr>
+<tr>
+<td><strong>Simplicité d’intégration</strong></td>
+<td>Compatible nativement avec Astro</td>
+<td>Aucun surcoût de configuration</td>
+</tr>
+<tr>
+<td><strong>API moderne et familière</strong></td>
+<td>Proche de React mais plus performante</td>
+<td>Courbe d’apprentissage rapide pour l’équipe</td>
+</tr>
+</tbody>
+</table>
+<p>Solid n’est chargé que là où c’est nécessaire.<br />
+Le reste du site reste statique et optimisé, ce qui nous permet de <strong>minimiser la quantité de JavaScript envoyée au client</strong>, tout en maintenant une UX moderne et réactive.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../creation/" class="btn btn-neutral float-left" title="Création des embeddings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../resultats/" class="btn btn-neutral float-right" title="Résultats">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="./" class="btn btn-neutral float-left" title="Front-end"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../conclusion_technos/" class="btn btn-neutral float-right" title="Conclusion">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -146,10 +176,10 @@ abaisse-langue,spatule,manche</code></li>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../creation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="./" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../resultats/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../conclusion_technos/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
