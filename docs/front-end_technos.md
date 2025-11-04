@@ -12,4 +12,4 @@ Astro s’est rapidement imposé pour plusieurs raisons stratégiques :
 | **Écosystème en croissance** | Plugins officiels et communauté active | Améliorations et support à long terme |
 
 Nous avons retenu Astro car il permet de **livrer un site ultra performant dès le premier rendu**, tout en restant suffisamment flexible pour intégrer des composants dynamiques grace à astro islands.  
-C’est une approche “**content-first**” qui correspond parfaitement à notre besoin : beaucoup de contenu statique, enrichi par quelques zones interactives.
+C’est une approche “**content-first**”, c'est à dire priorisant l'affichage de données, qui correspond parfaitement à notre besoin : beaucoup de contenu statique, enrichi par quelques zones interactives.

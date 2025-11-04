@@ -9,7 +9,7 @@ L’objectif principal est de trouver une représentation numérique pour chaque
 ## 1. Préparation des données :
 
 Un grand corpus de texte est collecté (par exemple : Wikipedia, livres, articles...).
-Le texte est nettoyé, découpé en phrases, puis en mots (tokenisation)
+Le texte est nettoyé, découpé en phrases, puis en mots (tokenisation).
 Une "fenêtre de contexte" est définie : par exemple, on peut regarder les 5 mots autour de chaque mot cible.
 
 
