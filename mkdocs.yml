@@ -13,7 +13,10 @@ nav:
       - Démarches: demarches.md
       - Résultats: resultats.md
   - Application:
-      - Recherches:
+      - Maquettes: 
+        - Inspiration: inspiration.md
+        - Premières ébauches: ebauches.md
+      - Recherches techniques:
           - Introduction: contexte_technos.md
           - Front-end: front-end_technos.md
           - Intégration JS: integration-js_technos.md
