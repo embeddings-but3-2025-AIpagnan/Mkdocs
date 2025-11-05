@@ -17,7 +17,7 @@ Le prompt que nous avons utilisé est le suivant:
 ![deepseek](images/deepseek.png "deepseek").
 
 ## chatgpt
-![chatgpt](images/chatgpt.png "chatgpt").
+![chatgpt](images/chat gpt.png "chatgpt").
 
 ## claude
 ![claude](images/claude.png "claude").
