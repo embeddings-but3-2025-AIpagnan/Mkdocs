@@ -1,12 +1,12 @@
 # Embeddings basés sur la fréquence (Frequency-Based Embeddings)
+
 Ces méthodes utilisent des statistiques de concurrence des mots dans un corpus.
 
 
 Elles reposent sur des matrices qui comptent le nombre de fois où des mots apparaissent ensemble dans des fenêtres de texte.
 
 
-## Exemples :
-
+## Exemples
 
 * `Count Vector` : vecteur basé sur le nombre d’occurrences de chaque mot dans un document.
 
@@ -17,9 +17,11 @@ Elles reposent sur des matrices qui comptent le nombre de fois où des mots appa
 * `LSA (Latent Semantic Analysis)` :utilise la décomposition SVD pour extraire des concepts latents à partir d’une matrice terme-document.
 
 
-## Avantages : 
+## Avantages
+
 simples, interprétables.
 
 
-## Inconvénients : 
+## Inconvénients
+
 matrices très grandes et creuses, peu efficaces pour capturer des liens sémantiques complexes.

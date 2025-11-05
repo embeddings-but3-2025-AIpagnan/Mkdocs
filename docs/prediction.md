@@ -5,11 +5,9 @@ Ces modèles apprennent les vecteurs en prévoyant un mot à partir de son conte
 Utilisent des réseaux de neurones simples pour créer des représentations distribuées.
 
 
-## Exemples :
+## Exemples
 
-
-### Word2Vec :
-
+### Word2Vec
 
 * `Skip-gram` : prédit les mots du contexte à partir du mot cible.
 
@@ -20,9 +18,11 @@ Utilisent des réseaux de neurones simples pour créer des représentations dist
 * `GloVe` : combine approche de cooccurrence et apprentissage prédictif ; s’appuie sur la probabilité relative de cooccurrence entre mots.
 
 
-## Avantages : 
+## Avantages
+
 efficaces, rapides à entraîner, bonnes performances sur les similarités sémantiques.
 
 
-## Inconvénients : 
+## Inconvénients
+
 un seul vecteur par mot, pas de prise en compte du contexte (un mot a toujours le même vecteur, quel que soit son sens dans la phrase).

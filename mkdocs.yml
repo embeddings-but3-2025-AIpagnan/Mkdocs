@@ -2,7 +2,7 @@ site_name: embedding
 
 nav:
   - Recherches théoriques: 
-      - Principes de l'embedding: principes.md
+      - Principes de l'embedding: index.md
       - Les différents types d'embedding: 
         - Frequency-Based Embeddings: frequency.md
         - Prediction-Based Embeddings: prediction.md

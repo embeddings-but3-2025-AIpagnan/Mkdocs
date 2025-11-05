@@ -8,7 +8,7 @@ Le même mot peut donc avoir plusieurs représentations différentes selon la ph
 Utilisent des architectures avancées comme les réseaux LSTM bidirectionnels ou les Transformers.
 
 
-## Exemples :
+## Exemples
 
 
 * `ELMo `: produit un vecteur pour chaque mot en tenant compte de toute la phrase, via des LSTM bidirectionnels.
@@ -20,9 +20,11 @@ Utilisent des architectures avancées comme les réseaux LSTM bidirectionnels ou
 * `GPT, RoBERTa, XLNet, etc. `: d’autres variantes de modèles préentraînés de type Transformer.
 
 
-## Avantages : 
+## Avantages
+
 très performants, capturent le sens réel du mot dans son contexte.
 
 
-## Inconvénients : 
+## Inconvénients
+
 lourds à entraîner et à déployer, difficilement interprétables.

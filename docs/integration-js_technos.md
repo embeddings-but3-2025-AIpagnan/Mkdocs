@@ -3,7 +3,7 @@
 Certaines fonctionnalités de l’application nécessitent une interactivité locale due aux tableaux nécessitant de pouvoir être modifiables.  
 Pour ces cas spécifiques, nous avons choisi **SolidJS**, intégré via le système des *Astro Islands*.
 
-## Nos motivations principales :
+## Nos motivations principales
 
 | Critère | Observation | Avantage |
 |----------|--------------|-----------|
