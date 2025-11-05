@@ -55,13 +55,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Création des embeddings</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1-preparation-des-donnees">1. Préparation des données :</a>
+    <li class="toctree-l2"><a class="reference internal" href="#1-preparation-des-donnees">1. Préparation des données</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2-construction-dun-objectif-dapprentissage">2. Construction d’un objectif d’apprentissage :</a>
+    <li class="toctree-l2"><a class="reference internal" href="#2-construction-dun-objectif-dapprentissage">2. Construction d’un objectif d’apprentissage</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#3-entrainement-dun-modele">3. Entraînement d’un modèle :</a>
+    <li class="toctree-l2"><a class="reference internal" href="#3-entrainement-dun-modele">3. Entraînement d’un modèle</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#4-extraction-des-vecteurs-appris">4. Extraction des vecteurs appris :</a>
+    <li class="toctree-l2"><a class="reference internal" href="#4-extraction-des-vecteurs-appris">4. Extraction des vecteurs appris</a>
     </li>
     </ul>
                   </li>
@@ -116,21 +116,21 @@
 <p>Les embeddings sont généralement appris automatiquement à partir de grands corpus de texte, en utilisant des techniques d’apprentissage automatique ou d’apprentissage profond.</p>
 <p>L’objectif principal est de trouver une représentation numérique pour chaque mot (ou phrase, ou document) qui capture ses relations avec les autres mots dans le langage.</p>
 <p>Étapes générales de création d’un embedding</p>
-<h2 id="1-preparation-des-donnees">1. Préparation des données :</h2>
+<h2 id="1-preparation-des-donnees">1. Préparation des données</h2>
 <p>Un grand corpus de texte est collecté (par exemple : Wikipedia, livres, articles...).
 Le texte est nettoyé, découpé en phrases, puis en mots (tokenisation).
 Une "fenêtre de contexte" est définie : par exemple, on peut regarder les 5 mots autour de chaque mot cible.</p>
-<h2 id="2-construction-dun-objectif-dapprentissage">2. Construction d’un objectif d’apprentissage :</h2>
+<h2 id="2-construction-dun-objectif-dapprentissage">2. Construction d’un objectif d’apprentissage</h2>
 <p>On choisit un objectif à optimiser. Par exemple :
 Prédire un mot cible à partir de son contexte (CBOW).
 Prédire le contexte à partir d’un mot cible (Skip-gram).
 Ou bien apprendre une fonction qui approxime les relations de cooccurrence entre mots (GloVe).
 Ce sont des tâches simples, mais qui forcent le modèle à comprendre les relations entre mots pour réussir.</p>
-<h2 id="3-entrainement-dun-modele">3. Entraînement d’un modèle :</h2>
+<h2 id="3-entrainement-dun-modele">3. Entraînement d’un modèle</h2>
 <p>On utilise un petit réseau de neurones (dans Word2Vec) ou une architecture plus complexe (LSTM pour ELMo, Transformer pour BERT).
 Le modèle ajuste progressivement les vecteurs associés à chaque mot, de manière à minimiser une fonction de perte (par exemple : erreur de prédiction du mot).
 Pendant cet entraînement, chaque mot est associé à un vecteur qui évolue à chaque itération pour mieux refléter ses usages dans le corpus.</p>
-<h2 id="4-extraction-des-vecteurs-appris">4. Extraction des vecteurs appris :</h2>
+<h2 id="4-extraction-des-vecteurs-appris">4. Extraction des vecteurs appris</h2>
 <p>Une fois l’entraînement terminé, chaque mot a un vecteur numérique stable : c’est son embedding.
 Ces vecteurs peuvent ensuite être utilisés dans d’autres modèles pour différentes tâches (analyse de sentiments, traduction automatique, résumé de texte, etc.).</p>
               
