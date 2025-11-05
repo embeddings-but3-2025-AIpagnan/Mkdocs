@@ -14,4 +14,4 @@ Le prompt que nous avons utilisé est le suivant:
 
 
 ## deepseek
-![deepseek](/images/deepssek.png "deepseek").
+![deepseek](/images/deepseek.png "deepseek").
