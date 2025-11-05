@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Contextualized Word Embeddings - embedding</title>
+    <title>Inspiration - embedding</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Contextualized Word Embeddings";
-        var mkdocs_page_input_path = "contextualized.md";
+        var mkdocs_page_name = "Inspiration";
+        var mkdocs_page_input_path = "inspiration.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -40,24 +40,16 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Recherches théoriques</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="..">Principes de l'embedding</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" >Les différents types d'embedding</a>
-    <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Les différents types d'embedding</a>
+    <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../frequency/">Frequency-Based Embeddings</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../prediction/">Prediction-Based Embeddings</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="#">Contextualized Word Embeddings</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#exemples">Exemples</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#avantages">Avantages</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#inconvenients">Inconvénients</a>
-    </li>
-    </ul>
+                <li class="toctree-l2"><a class="reference internal" href="../contextualized/">Contextualized Word Embeddings</a>
                 </li>
     </ul>
                   </li>
@@ -72,10 +64,14 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Application</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" >Maquettes</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../inspiration/">Inspiration</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >Maquettes</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Inspiration</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#deepseek">deepseek</a>
+    </li>
+    </ul>
                 </li>
                 <li class="toctree-l2"><a class="" href="../ebauches.md">Premières ébauches</a>
                 </li>
@@ -108,9 +104,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Recherches théoriques</li>
-          <li class="breadcrumb-item">Les différents types d'embedding</li>
-      <li class="breadcrumb-item active">Contextualized Word Embeddings</li>
+          <li class="breadcrumb-item">Application</li>
+          <li class="breadcrumb-item">Maquettes</li>
+      <li class="breadcrumb-item active">Inspiration</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -119,32 +115,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="embeddings-contextualises-contextualized-word-embeddings">Embeddings contextualisés (Contextualized Word Embeddings)</h1>
-<p>Ces embeddings tiennent compte du contexte dans lequel le mot apparaît.</p>
-<p>Le même mot peut donc avoir plusieurs représentations différentes selon la phrase (ex : “bark” en anglais peut désigner un aboiement ou une écorce).</p>
-<p>Utilisent des architectures avancées comme les réseaux LSTM bidirectionnels ou les Transformers.</p>
-<h2 id="exemples">Exemples</h2>
-<ul>
-<li>
-<p><code>ELMo</code>: produit un vecteur pour chaque mot en tenant compte de toute la phrase, via des LSTM bidirectionnels.</p>
-</li>
-<li>
-<p><code>BERT : modèle basé sur les Transformers</code>; produit des vecteurs contextuels riches pour chaque mot.</p>
-</li>
-<li>
-<p><code>GPT, RoBERTa, XLNet, etc.</code>: d’autres variantes de modèles préentraînés de type Transformer.</p>
-</li>
-</ul>
-<h2 id="avantages">Avantages</h2>
-<p>très performants, capturent le sens réel du mot dans son contexte.</p>
-<h2 id="inconvenients">Inconvénients</h2>
-<p>lourds à entraîner et à déployer, difficilement interprétables.</p>
+                <h1 id="inspiration-pour-les-maquettes">Inspiration pour les maquettes</h1>
+<p>Pour trouver de l'inspiration pour les maquettes, nous avons demandé à différentes ia de nous suggérer des maquettes, nous allons donc comparer, les différents résultats, établir leurs forces et faiblesses afin de créer une maquette finales.
+Le prompt que nous avons utilisé est le suivant:</p>
+<blockquote>
+<p>Propose-moi un design pour une application web qui me permette de
+créer un glossaire métier. Je voudrais pouvoir ajouter un mot, sa
+définition, ainsi qu'un contexte lié à ce mot. Il faudrait aussi que
+je puisse entrer des synonymes et des antonymes, et que l'IA puisse en
+suggérer . Je voudrais avoir la possibilité de choisir les synonymes
+les plus pertinents. De plus, en fonction des mots déjà enregistrés,
+l’application devrait pouvoir proposer des contextes associés.</p>
+</blockquote>
+<h2 id="deepseek">deepseek</h2>
+<p><img alt="deepseek" src="/images/deepssek.png" title="deepseek" />.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../prediction/" class="btn btn-neutral float-left" title="Prediction-Based Embeddings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../creation/" class="btn btn-neutral float-right" title="Création des embeddings">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../resultats/" class="btn btn-neutral float-left" title="Résultats"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contexte_technos/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -167,10 +157,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../prediction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../resultats/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../creation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../contexte_technos/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
