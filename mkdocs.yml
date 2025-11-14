@@ -21,7 +21,11 @@ nav:
           - Front-end: front-end_technos.md
           - Intégration JS: integration-js_technos.md
           - Conclusion: conclusion_technos.md
-      
+      - Resultats:
+          - schéma: schema.md
+          - déploiment: deploiment.md
+          - installation: installation.md
+          
 
 
 theme: readthedocs
