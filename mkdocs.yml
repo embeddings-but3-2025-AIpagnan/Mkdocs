@@ -17,6 +17,7 @@ nav:
       - Maquettes: 
         - Inspiration: inspiration.md
         - Premières ébauches: ebauches.md
+        - Maquettes: maquettes.md
       - Recherches techniques:
           - Introduction: contexte_technos.md
           - Front-end: front-end_technos.md
