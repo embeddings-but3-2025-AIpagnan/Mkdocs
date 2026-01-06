@@ -79,6 +79,8 @@
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="#">Front-end</a>
     <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#analyse-par-criteres">Analyse par critères</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../integration-js_technos/">Intégration JS</a>
@@ -124,7 +126,9 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="pourquoi-nous-avons-choisi-astro">Pourquoi nous avons choisi Astro ?</h1>
-<p>Astro s’est rapidement imposé pour plusieurs raisons stratégiques :</p>
+<p>Astro s’est rapidement imposé comme une solution particulièrement pertinente pour notre projet, notamment grâce à son approche orientée <strong>performance par défaut</strong> et sa philosophie <em>content-first</em>.</p>
+<p>Contrairement aux frameworks SPA traditionnels, Astro privilégie le rendu HTML statique et limite drastiquement l’envoi de JavaScript au navigateur. Cette caractéristique correspond parfaitement à notre besoin principal : afficher efficacement une grande quantité de contenu, tout en conservant la possibilité d’ajouter de l’interactivité de manière ciblée.</p>
+<h2 id="analyse-par-criteres">Analyse par critères</h2>
 <table>
 <thead>
 <tr>
@@ -136,38 +140,38 @@
 <tbody>
 <tr>
 <td><strong>Performance initiale</strong></td>
-<td>Rendu HTML statique, 0 JS par défaut</td>
-<td>Temps de chargement ultra rapide</td>
+<td>Rendu HTML statique, 0 JavaScript par défaut</td>
+<td>Temps de chargement ultra rapide dès le premier affichage</td>
 </tr>
 <tr>
 <td><strong>Poids du bundle</strong></td>
-<td>Très faible (JS uniquement sur les composants interactifs)</td>
-<td>Réduction du coût réseau et meilleure UX</td>
+<td>JavaScript chargé uniquement pour les composants interactifs</td>
+<td>Réduction du coût réseau et amélioration significative de l’UX</td>
 </tr>
 <tr>
 <td><strong>Simplicité du code</strong></td>
-<td>Structure claire, séparation nette contenu / logique</td>
-<td>Maintenance facilitée</td>
+<td>Structure claire et séparation nette entre contenu, styles et logique</td>
+<td>Maintenance facilitée et meilleure lisibilité</td>
 </tr>
 <tr>
 <td><strong>SEO et accessibilité</strong></td>
-<td>Excellent grâce au pré-rendu HTML</td>
-<td>Meilleur référencement naturel</td>
+<td>Pré-rendu HTML natif</td>
+<td>Référencement naturel optimisé et meilleure accessibilité</td>
 </tr>
 <tr>
 <td><strong>Facilité d’intégration</strong></td>
-<td>Support hybride et partiel</td>
+<td>Support hybride de multiples frameworks</td>
 <td>Intégration fluide avec notre stack existante</td>
 </tr>
 <tr>
 <td><strong>Écosystème en croissance</strong></td>
-<td>Plugins officiels et communauté active</td>
-<td>Améliorations et support à long terme</td>
+<td>Plugins officiels, documentation complète, communauté active</td>
+<td>Pérennité de la solution et évolutions à long terme</td>
 </tr>
 </tbody>
 </table>
-<p>Nous avons retenu Astro car il permet de <strong>livrer un site ultra performant dès le premier rendu</strong>, tout en restant suffisamment flexible pour intégrer des composants dynamiques grace à astro islands.<br />
-C’est une approche “<strong>content-first</strong>”, c'est à dire priorisant l'affichage de données, qui correspond parfaitement à notre besoin : beaucoup de contenu statique, enrichi par quelques zones interactives.</p>
+<p>Nous avons retenu Astro car il permet de <strong>livrer une application extrêmement performante dès le premier rendu</strong>, tout en restant suffisamment flexible pour intégrer des composants dynamiques grâce au concept des <em>Astro Islands</em>.</p>
+<p>Cette approche dite <strong>« content-first »</strong>, qui priorise l’affichage rapide des données et du contenu, correspond parfaitement à notre cas d’usage : une majorité de pages statiques enrichies par quelques zones interactives ciblées.</p>
               
             </div>
           </div><footer>

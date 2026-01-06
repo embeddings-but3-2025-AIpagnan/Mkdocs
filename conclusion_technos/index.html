@@ -83,6 +83,20 @@
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="#">Conclusion</a>
     <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#vue-densemble">Vue d’ensemble</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#front-end">Front-End</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#astro">Astro</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#solidjs-astro-islands">SolidJS (Astro Islands)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#back-end">Back-End</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benefices-globaux-de-larchitecture">Bénéfices globaux de l’architecture</a>
+    </li>
     </ul>
                 </li>
     </ul>
@@ -124,14 +138,57 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="architecture-retenue">Architecture retenue</h1>
-<p>Notre architecture front-end se découpe en deux niveaux :</p>
-<ol>
-<li><strong>Astro</strong> : gère le rendu statique, le routage, la structure globale et le SEO.  </li>
-<li><strong>Solid (Islands)</strong> : prend en charge les zones interactives ciblées au sein des pages Astro.</li>
-</ol>
-<p>Cette approche hybride nous permet de bénéficier du <strong>meilleur des deux mondes</strong> :<br />
-- la <strong>vitesse d’un site statique</strong>,<br />
-- et la <strong>souplesse d’un framework réactif</strong> là où c’est utile.</p>
+<p>L’architecture globale de l’application repose sur une <strong>approche cohérente, hybride et orientée performance</strong>, répondant à la fois aux contraintes techniques du projet et aux exigences exprimées par la cliente, notamment en matière de <strong>souveraineté des données</strong> et de <strong>pérennité</strong>.</p>
+<h2 id="vue-densemble">Vue d’ensemble</h2>
+<p>L’application est conçue comme une <strong>application de bureau multiplateforme</strong>, reposant sur <strong>Tauri</strong> pour l’encapsulation et l’exécution locale, garantissant ainsi :</p>
+<ul>
+<li>un <strong>stockage et un traitement des données en local</strong>,</li>
+<li>une <strong>faible empreinte mémoire et disque</strong>,</li>
+<li>des <strong>performances élevées</strong>, indépendantes d’un moteur web embarqué lourd.</li>
+</ul>
+<p>À l’intérieur de cette enveloppe desktop, l’architecture front-end adopte une stratégie en deux niveaux complémentaires :</p>
+<h2 id="front-end">Front-End</h2>
+<h3 id="astro">Astro</h3>
+<ul>
+<li>Rendu HTML statique par défaut (<em>content-first</em>)</li>
+<li>Routage et structuration globale de l’application</li>
+<li>Chargement minimal de JavaScript</li>
+<li>Excellente accessibilité et lisibilité du code</li>
+<li>Maintenance facilitée sur le long terme</li>
+</ul>
+<h3 id="solidjs-astro-islands">SolidJS (Astro Islands)</h3>
+<ul>
+<li>Gestion des zones interactives ciblées</li>
+<li>Réactivité fine sans Virtual DOM</li>
+<li>Mise à jour efficace des états locaux</li>
+<li>Interactions complexes (tableaux, formulaires, composants dynamiques)</li>
+</ul>
+<p>Cette combinaison permet de <strong>limiter strictement l’interactivité aux zones nécessaires</strong>, tout en conservant un rendu ultra-rapide et une expérience utilisateur fluide.</p>
+<h2 id="back-end">Back-End</h2>
+<p>Le back-end repose sur <strong>FastAPI</strong>, choisi pour :</p>
+<ul>
+<li>ses <strong>excellentes performances</strong>,</li>
+<li>la <strong>validation automatique des données</strong>,</li>
+<li>la <strong>génération native de documentation interactive</strong>,</li>
+<li>sa modernité et son adéquation avec des architectures évolutives.</li>
+</ul>
+<p>FastAPI assure la communication entre le front-end et la logique métier, tout en restant parfaitement intégré à un environnement local et sécurisé.</p>
+<h2 id="benefices-globaux-de-larchitecture">Bénéfices globaux de l’architecture</h2>
+<p>Cette architecture nous permet de bénéficier du <strong>meilleur des différents paradigmes</strong> :</p>
+<ul>
+<li>la <strong>rapidité et la fiabilité du statique</strong> avec Astro,</li>
+<li>la <strong>souplesse d’un framework réactif moderne</strong> avec SolidJS,</li>
+<li>la <strong>robustesse d’un back-end Python moderne</strong> avec FastAPI,</li>
+<li>et la <strong>sécurité d’une application de bureau légère</strong> grâce à Tauri.</li>
+</ul>
+<p>En synthèse, les choix technologiques opérés garantissent une application :</p>
+<ul>
+<li><strong>performante dès le premier rendu</strong>,</li>
+<li><strong>respectueuse des contraintes de souveraineté des données</strong>,</li>
+<li><strong>facile à maintenir et à faire évoluer</strong>,</li>
+<li>et offrant une <strong>expérience utilisateur moderne, fluide et maîtrisée</strong>.</li>
+</ul>
+<p>Cette architecture constitue ainsi une base solide, durable et adaptée aux besoins actuels comme aux évolutions futures du projet.</p>
               
             </div>
           </div><footer>

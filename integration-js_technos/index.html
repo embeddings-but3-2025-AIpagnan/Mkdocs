@@ -125,9 +125,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="pourquoi-nous-avons-choisi-solid">Pourquoi nous avons Choisi Solid ?</h1>
-<p>Certaines fonctionnalités de l’application nécessitent une interactivité locale due aux tableaux nécessitant de pouvoir être modifiables.<br />
-Pour ces cas spécifiques, nous avons choisi <strong>SolidJS</strong>, intégré via le système des <em>Astro Islands</em>.</p>
+                <h1 id="pourquoi-nous-avons-choisi-solidjs">Pourquoi nous avons choisi SolidJS ?</h1>
+<p>Certaines fonctionnalités de l’application nécessitent une interactivité locale, notamment pour des <strong>tableaux modifiables</strong>, des formulaires dynamiques ou des composants nécessitant des mises à jour fréquentes de l’état.</p>
+<p>Pour répondre à ces besoins spécifiques sans alourdir inutilement l’ensemble de l’application, nous avons choisi <strong>SolidJS</strong>, intégré via le système des <em>Astro Islands</em>.</p>
 <h2 id="nos-motivations-principales">Nos motivations principales</h2>
 <table>
 <thead>
@@ -140,28 +140,27 @@ Pour ces cas spécifiques, nous avons choisi <strong>SolidJS</strong>, intégré
 <tbody>
 <tr>
 <td><strong>Performance runtime</strong></td>
-<td>Solid est reconnu pour sa réactivité exceptionnelle</td>
-<td>Expérience fluide et instantanée</td>
+<td>Réactivité fine sans Virtual DOM</td>
+<td>Expérience utilisateur fluide et instantanée</td>
 </tr>
 <tr>
 <td><strong>Poids du bundle</strong></td>
-<td>Très léger</td>
+<td>Framework très léger</td>
 <td>Interactivité sans compromettre la vitesse globale</td>
 </tr>
 <tr>
 <td><strong>Simplicité d’intégration</strong></td>
-<td>Compatible nativement avec Astro</td>
+<td>Compatibilité native avec Astro</td>
 <td>Aucun surcoût de configuration</td>
 </tr>
 <tr>
 <td><strong>API moderne et familière</strong></td>
-<td>Proche de React mais plus performante</td>
+<td>Syntaxe proche de React</td>
 <td>Courbe d’apprentissage rapide pour l’équipe</td>
 </tr>
 </tbody>
 </table>
-<p>Solid n’est chargé que là où c’est nécessaire.<br />
-Le reste du site reste statique et optimisé, ce qui nous permet de <strong>minimiser la quantité de JavaScript envoyée au client</strong>, tout en maintenant une UX moderne et réactive.</p>
+<p>SolidJS n’est chargé que <strong>là où il est strictement nécessaire</strong>. Le reste du site demeure statique et optimisé, ce qui nous permet de <strong>minimiser la quantité de JavaScript envoyée au client</strong>, tout en conservant une expérience utilisateur moderne, réactive et cohérente.</p>
               
             </div>
           </div><footer>
