@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Premières expériences - embedding</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Premi\u00e8res exp\u00e9riences";
+        var mkdocs_page_input_path = "experimentations/premieres_experiences.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> embedding
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Recherches théoriques</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Principes de l'embedding</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Les différents types d'embedding</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../frequency/">Frequency-Based Embeddings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../prediction/">Prediction-Based Embeddings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../contextualized/">Contextualized Word Embeddings</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../creation/">Création des embeddings</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Expérimentations</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Premières expériences</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_visualisations/">API & Visualisations</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Application</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Maquettes</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../inspiration/">Inspiration</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ebauches/">Premières ébauches</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Recherches techniques</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../contexte_technos/">Introduction</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../front-end_technos/">Front-end</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../integration-js_technos/">Intégration JS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../conclusion_technos/">Conclusion</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Resultats</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../schema/">schéma</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../deploiment/">déploiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../installation/">installation</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">embedding</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Expérimentations</li>
+      <li class="breadcrumb-item active">Premières expériences</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="choix-des-technologies">Choix des technologies</h1>
+<p>Pour commencer, il nous a fallu choisir une technologie à utiliser. Comme nous n'arrivions pas à faire fonctionner Word2Vec (pour des raisons techniques), nous avons initialement choisi d'utiliser un modèle basé sur des transformers, facile à lancer n'importe où grâce à Ollama. Nous avons ensuite réussi à faire fonctionner Word2Vec, et nous avons donc initialement décidé de comparer les deux.</p>
+<p>Pour Word2Vec, nous avons utilisé le corpus text8, qui contient le premier milliard de caractères de Wikipedia. L'autre modèle que nous avons utilisé est MiniLM, qui est basé sur une architecture BERT (qui est elle-même basée sur une architecture de transformers).</p>
+<h1 id="tests-semantiques-sur-minilm">Tests sémantiques sur MiniLM</h1>
+<p>Nous avons commencé par faire des tests pour voir s'il était possible de se baser sur la proximité (distance scalaire) pour trouver des relations entre les mots. Nous avons donc calculé la distance moyenne entre des groupes de synonymes, antonymes, mots associés et holonymes (relation de tout à partie).<br />
+Pour les synonymes, nous avons trouvé un corpus de 36 000 groupes de synonymes. Nous n'avons pas trouvé de corpus pour les autres types de mots, nous les avons donc générés par IA.</p>
+<p>Voici les résultats:</p>
+<ul>
+<li>Synonymes<ul>
+<li>Proximité moyenne: 0.637</li>
+<li>Proximité minimale: 0.484 pour épistaxis, saignement de nez</li>
+<li>Proximité maximale: 0.976 pour scintigramme, scintillogramme</li>
+</ul>
+</li>
+<li>Antonymes<ul>
+<li>Proximité moyenne: 0.665</li>
+<li>Proximité minimale: 0.565 pour aube, crépuscule</li>
+<li>Proximité maximale: 0.907 pour visible, invisible</li>
+</ul>
+</li>
+<li>Associés<ul>
+<li>Proximité moyenne: 0.640</li>
+<li>Proximité minimale: 0.554 pour lion, crinière</li>
+<li>Proximité maximale: 0.794 pour pluie, parapluie</li>
+</ul>
+</li>
+<li>Holonymes<ul>
+<li>Proximité moyenne: 0.653</li>
+<li>Proximité minimale: 0.537 pour organe, corps</li>
+<li>Proximité maximale: 0.854 pour graine, fruit</li>
+</ul>
+</li>
+</ul>
+<p>À notre grande déception, tous les types de mots ont une proximité similaire. Après réflexion, cela paraît logique, car même si la relation entre les mots est différente, ils restent proches sémantiquement.</p>
+<h1 id="recuperation-de-synonymes-via-word2vec">Récupération de synonymes via Word2Vec</h1>
+<p>Contrairement à MiniLM, Word2Vec permet de récupérer la liste des mots qui sont proches d'un vecteur. Nous avons donc testé de trouver des synonymes avec la méthode suivante : on part d'un (ou plusieurs) mot(s), on les embed (c'est-à-dire les convertit en vecteur), on fait la moyenne des vecteurs obtenus, puis on récupère la liste des mots les plus proches de ce vecteur.</p>
+<p>Voici les résultats (la proximité au vecteur est entre parenthèses):</p>
+<ul>
+<li>Avec les mots: home, residence, house<ul>
+<li>house (<code>0.802</code>)</li>
+<li>residence (<code>0.788</code>)</li>
+<li>home (<code>0.749</code>)</li>
+<li>palace (<code>0.693</code>)</li>
+<li>mansion (<code>0.678</code>)</li>
+<li>manor (<code>0.661</code>)</li>
+<li>castle (<code>0.631</code>)</li>
+<li>windsor (<code>0.628</code>)</li>
+<li>edinburgh (<code>0.625</code>)</li>
+<li>hotel (<code>0.620</code>)</li>
+</ul>
+</li>
+<li>Avec les mots: button, zipper, latch<ul>
+<li>button (<code>0.989</code>)</li>
+<li>buttons (<code>0.829</code>)</li>
+<li>hook (<code>0.781</code>)</li>
+<li>stick (<code>0.769</code>)</li>
+<li>punch (<code>0.763</code>)</li>
+<li>notch (<code>0.762</code>)</li>
+<li>pedal (<code>0.754</code>)</li>
+<li>tray (<code>0.751</code>)</li>
+<li>window (<code>0.749</code>)</li>
+<li>keyboard (<code>0.748</code>)</li>
+</ul>
+</li>
+<li>Avec les mots: penalty, sanction, sentence<ul>
+<li>penalty (<code>0.861</code>)</li>
+<li>sentence (<code>0.849</code>)</li>
+<li>defendant (<code>0.712</code>)</li>
+<li>felony (<code>0.683</code>)</li>
+<li>manslaughter (<code>0.669</code>)</li>
+<li>procedure (<code>0.666</code>)</li>
+<li>punishment (<code>0.652</code>)</li>
+<li>offence (<code>0.634</code>)</li>
+<li>conviction (<code>0.634</code>)</li>
+<li>wrongful (<code>0.628</code>)</li>
+</ul>
+</li>
+<li>Avec les mots: ruby, emerald, sapphire<ul>
+<li>sapphire (<code>0.856</code>)</li>
+<li>ruby (<code>0.855</code>)</li>
+<li>microcebus (<code>0.836</code>)</li>
+<li>plum (<code>0.829</code>)</li>
+<li>moth (<code>0.825</code>)</li>
+<li>bean (<code>0.823</code>)</li>
+<li>ginger (<code>0.820</code>)</li>
+<li>cabbage (<code>0.819</code>)</li>
+<li>emerald (<code>0.817</code>)</li>
+<li>marmoset (<code>0.805</code>)</li>
+</ul>
+</li>
+</ul>
+<p>Comme on peut le voir, la qualité des mots est plutôt mauvaise, et les scores ne permettent pas de filtrer les meilleurs mots. En plus de cela, Word2Vec ne supporte pas le contexte (c'est-à-dire qu'on ne peut embedder qu'un seul mot à la fois). Même si nous avons simulé du contexte en faisant la moyenne de plusieurs mots, c'est tout de même moins qualitatif qu'un modèle qui permet d'utiliser du contexte.</p>
+<p>Au vu du manque d'efficacité de cette méthode, nous avons décidé de changer de méthode pour déterminer les synonymes d'un mot.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../creation/" class="btn btn-neutral float-left" title="Création des embeddings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api_visualisations/" class="btn btn-neutral float-right" title="API & Visualisations">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../creation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api_visualisations/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
