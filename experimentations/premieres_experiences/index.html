@@ -60,6 +60,12 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Premières expériences</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#choix-des-technologies">Choix des technologies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tests-semantiques-sur-minilm">Tests sémantiques sur MiniLM</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recuperation-de-synonymes-via-word2vec">Récupération de synonymes via Word2Vec</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../api_visualisations/">API & Visualisations</a>
@@ -128,10 +134,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="choix-des-technologies">Choix des technologies</h1>
+                <h1 id="premieres-experiences">Premières expériences</h1>
+<h2 id="choix-des-technologies">Choix des technologies</h2>
 <p>Pour commencer, il nous a fallu choisir une technologie à utiliser. Comme nous n'arrivions pas à faire fonctionner Word2Vec (pour des raisons techniques), nous avons initialement choisi d'utiliser un modèle basé sur des transformers, facile à lancer n'importe où grâce à Ollama. Nous avons ensuite réussi à faire fonctionner Word2Vec, et nous avons donc initialement décidé de comparer les deux.</p>
 <p>Pour Word2Vec, nous avons utilisé le corpus text8, qui contient le premier milliard de caractères de Wikipedia. L'autre modèle que nous avons utilisé est MiniLM, qui est basé sur une architecture BERT (qui est elle-même basée sur une architecture de transformers).</p>
-<h1 id="tests-semantiques-sur-minilm">Tests sémantiques sur MiniLM</h1>
+<h2 id="tests-semantiques-sur-minilm">Tests sémantiques sur MiniLM</h2>
 <p>Nous avons commencé par faire des tests pour voir s'il était possible de se baser sur la proximité (distance scalaire) pour trouver des relations entre les mots. Nous avons donc calculé la distance moyenne entre des groupes de synonymes, antonymes, mots associés et holonymes (relation de tout à partie).<br />
 Pour les synonymes, nous avons trouvé un corpus de 36 000 groupes de synonymes. Nous n'avons pas trouvé de corpus pour les autres types de mots, nous les avons donc générés par IA.</p>
 <p>Voici les résultats:</p>
@@ -162,7 +169,7 @@ Pour les synonymes, nous avons trouvé un corpus de 36 000 groupes de synonymes.
 </li>
 </ul>
 <p>À notre grande déception, tous les types de mots ont une proximité similaire. Après réflexion, cela paraît logique, car même si la relation entre les mots est différente, ils restent proches sémantiquement.</p>
-<h1 id="recuperation-de-synonymes-via-word2vec">Récupération de synonymes via Word2Vec</h1>
+<h2 id="recuperation-de-synonymes-via-word2vec">Récupération de synonymes via Word2Vec</h2>
 <p>Contrairement à MiniLM, Word2Vec permet de récupérer la liste des mots qui sont proches d'un vecteur. Nous avons donc testé de trouver des synonymes avec la méthode suivante : on part d'un (ou plusieurs) mot(s), on les embed (c'est-à-dire les convertit en vecteur), on fait la moyenne des vecteurs obtenus, puis on récupère la liste des mots les plus proches de ce vecteur.</p>
 <p>Voici les résultats (la proximité au vecteur est entre parenthèses):</p>
 <ul>
