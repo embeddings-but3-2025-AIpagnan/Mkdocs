@@ -10,8 +10,9 @@ nav:
       - Création des embeddings: creation.md
 
   - Expérimentations: 
-      - Démarches: demarches.md
-      - Résultats: resultats.md
+      - Premières expériences: experimentations/premieres_experiences.md
+      - API & Visualisations: experimentations/api_visualisations.md
+
   - Application:
       - Maquettes: 
         - Inspiration: inspiration.md
