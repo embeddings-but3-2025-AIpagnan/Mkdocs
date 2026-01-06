@@ -12,6 +12,7 @@ nav:
   - Expérimentations: 
       - Premières expériences: experimentations/premieres_experiences.md
       - API & Visualisations: experimentations/api_visualisations.md
+      - LLM: experimentations/llm.md
 
   - Application:
       - Maquettes: 
