@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Premières expériences - embedding</title>
+    <title>LLM - embedding</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Premi\u00e8res exp\u00e9riences";
-        var mkdocs_page_input_path = "experimentations/premieres_experiences.md";
+        var mkdocs_page_name = "LLM";
+        var mkdocs_page_input_path = "experimentations/llm.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -58,19 +58,13 @@
               </ul>
               <p class="caption"><span class="caption-text">Expérimentations</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Premières expériences</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#choix-des-technologies">Choix des technologies</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#tests-semantiques-sur-minilm">Tests sémantiques sur MiniLM</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#recuperation-de-synonymes-via-word2vec">Récupération de synonymes via Word2Vec</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../premieres_experiences/">Premières expériences</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../api_visualisations/">API & Visualisations</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../llm/">LLM</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">LLM</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Application</span></p>
@@ -127,7 +121,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Expérimentations</li>
-      <li class="breadcrumb-item active">Premières expériences</li>
+      <li class="breadcrumb-item active">LLM</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -136,106 +130,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="premieres-experiences">Premières expériences</h1>
-<h2 id="choix-des-technologies">Choix des technologies</h2>
-<p>Pour commencer, il nous a fallu choisir une technologie à utiliser. Comme nous n'arrivions pas à faire fonctionner Word2Vec (pour des raisons techniques), nous avons initialement choisi d'utiliser un modèle basé sur des transformers, facile à lancer n'importe où grâce à Ollama. Nous avons ensuite réussi à faire fonctionner Word2Vec, et nous avons donc initialement décidé de comparer les deux.</p>
-<p>Pour Word2Vec, nous avons utilisé le corpus text8, qui contient le premier milliard de caractères de Wikipedia. L'autre modèle que nous avons utilisé est MiniLM, qui est basé sur une architecture BERT (qui est elle-même basée sur une architecture de transformers).</p>
-<h2 id="tests-semantiques-sur-minilm">Tests sémantiques sur MiniLM</h2>
-<p>Nous avons commencé par faire des tests pour voir s'il était possible de se baser sur la proximité (distance scalaire) pour trouver des relations entre les mots. Nous avons donc calculé la distance moyenne entre des groupes de synonymes, antonymes, mots associés et holonymes (relation de tout à partie).<br />
-Pour les synonymes, nous avons trouvé un corpus de 36 000 groupes de synonymes. Nous n'avons pas trouvé de corpus pour les autres types de mots, nous les avons donc générés par IA.</p>
-<p>Voici les résultats:</p>
+                <h1 id="llm">LLM</h1>
+<p>Afin de résoudre les problèmes de la méthode précédente, nous avons complètement changé d'approche. Nous avons décidé d'utiliser un LLM traditionnel (similaire à ChatGPT par exemple). En l'occurence, notre choix s'est porté sur <strong>Qwen3</strong>, car il est haut dans les leaderboards (comme on peut le voir <a href="https://llm-stats.com/leaderboards/open-llm-leaderboard">ici</a>), et qu'il y a des versions compressées, moins intelligentes, mais suffisamment légères pour être utilisées localement.<br />
+Un avantage majeur d'utiliser un LLM est sa grande flexibilité: il suffit de modifier le prompt pour générer différents types de contenus.</p>
+<p>En l'occurence, pour générer des synonymes, nous sommes arrivés à ce prompt grâce à des tests itératifs rapides:</p>
+<pre><code>In a ubiquitous language glossary named &quot;&lt;nom du glossaire&gt;&quot; and with the following description:
+&lt;description du glossaire&gt;
+
+The glossary currently contains the following words: &lt;mots du glossaire&gt;
+
+Find synonyms of the word &quot;&lt;mot&gt;&quot; as defined by:
+&lt;définition du mot&gt;
+
+Already known synonyms for the correct sense of the word: &lt;liste des synonymes déjà présents&gt;
+
+Your response MUST be in the original word's language.
+Respond ONLY with the synonyms, separated by commas. Do not include any other text in your response.
+</code></pre>
+<p>Il suffit ensuite de nettoyer la réponse donnée par l'IA en appliquant ces étapes:</p>
 <ul>
-<li>Synonymes<ul>
-<li>Proximité moyenne: 0.637</li>
-<li>Proximité minimale: 0.484 pour épistaxis, saignement de nez</li>
-<li>Proximité maximale: 0.976 pour scintigramme, scintillogramme</li>
+<li>Suppression de certains caractères que l'IA utilise parfois (<code>'</code>, <code>"</code>, <code>.</code>)</li>
+<li>Passage en minuscules de tous les mots</li>
+<li>Déduplication des mots, incluant les pluriels</li>
 </ul>
-</li>
-<li>Antonymes<ul>
-<li>Proximité moyenne: 0.665</li>
-<li>Proximité minimale: 0.565 pour aube, crépuscule</li>
-<li>Proximité maximale: 0.907 pour visible, invisible</li>
-</ul>
-</li>
-<li>Associés<ul>
-<li>Proximité moyenne: 0.640</li>
-<li>Proximité minimale: 0.554 pour lion, crinière</li>
-<li>Proximité maximale: 0.794 pour pluie, parapluie</li>
-</ul>
-</li>
-<li>Holonymes<ul>
-<li>Proximité moyenne: 0.653</li>
-<li>Proximité minimale: 0.537 pour organe, corps</li>
-<li>Proximité maximale: 0.854 pour graine, fruit</li>
-</ul>
-</li>
-</ul>
-<p>À notre grande déception, tous les types de mots ont une proximité similaire. Après réflexion, cela paraît logique, car même si la relation entre les mots est différente, ils restent proches sémantiquement.</p>
-<h2 id="recuperation-de-synonymes-via-word2vec">Récupération de synonymes via Word2Vec</h2>
-<p>Contrairement à MiniLM, Word2Vec permet de récupérer la liste des mots qui sont proches d'un vecteur. Nous avons donc testé de trouver des synonymes avec la méthode suivante : on part d'un (ou plusieurs) mot(s), on les embed (c'est-à-dire les convertit en vecteur), on fait la moyenne des vecteurs obtenus, puis on récupère la liste des mots les plus proches de ce vecteur.</p>
-<p>Voici les résultats (la proximité au vecteur est entre parenthèses):</p>
-<ul>
-<li>Avec les mots: home, residence, house<ul>
-<li>house (<code>0.802</code>)</li>
-<li>residence (<code>0.788</code>)</li>
-<li>home (<code>0.749</code>)</li>
-<li>palace (<code>0.693</code>)</li>
-<li>mansion (<code>0.678</code>)</li>
-<li>manor (<code>0.661</code>)</li>
-<li>castle (<code>0.631</code>)</li>
-<li>windsor (<code>0.628</code>)</li>
-<li>edinburgh (<code>0.625</code>)</li>
-<li>hotel (<code>0.620</code>)</li>
-</ul>
-</li>
-<li>Avec les mots: button, zipper, latch<ul>
-<li>button (<code>0.989</code>)</li>
-<li>buttons (<code>0.829</code>)</li>
-<li>hook (<code>0.781</code>)</li>
-<li>stick (<code>0.769</code>)</li>
-<li>punch (<code>0.763</code>)</li>
-<li>notch (<code>0.762</code>)</li>
-<li>pedal (<code>0.754</code>)</li>
-<li>tray (<code>0.751</code>)</li>
-<li>window (<code>0.749</code>)</li>
-<li>keyboard (<code>0.748</code>)</li>
-</ul>
-</li>
-<li>Avec les mots: penalty, sanction, sentence<ul>
-<li>penalty (<code>0.861</code>)</li>
-<li>sentence (<code>0.849</code>)</li>
-<li>defendant (<code>0.712</code>)</li>
-<li>felony (<code>0.683</code>)</li>
-<li>manslaughter (<code>0.669</code>)</li>
-<li>procedure (<code>0.666</code>)</li>
-<li>punishment (<code>0.652</code>)</li>
-<li>offence (<code>0.634</code>)</li>
-<li>conviction (<code>0.634</code>)</li>
-<li>wrongful (<code>0.628</code>)</li>
-</ul>
-</li>
-<li>Avec les mots: ruby, emerald, sapphire<ul>
-<li>sapphire (<code>0.856</code>)</li>
-<li>ruby (<code>0.855</code>)</li>
-<li>microcebus (<code>0.836</code>)</li>
-<li>plum (<code>0.829</code>)</li>
-<li>moth (<code>0.825</code>)</li>
-<li>bean (<code>0.823</code>)</li>
-<li>ginger (<code>0.820</code>)</li>
-<li>cabbage (<code>0.819</code>)</li>
-<li>emerald (<code>0.817</code>)</li>
-<li>marmoset (<code>0.805</code>)</li>
-</ul>
-</li>
-</ul>
-<p>Comme on peut le voir, la qualité des mots est plutôt mauvaise, et les scores ne permettent pas de filtrer les meilleurs mots. En plus de cela, Word2Vec ne supporte pas le contexte (c'est-à-dire qu'on ne peut embedder qu'un seul mot à la fois). Même si nous avons simulé du contexte en faisant la moyenne de plusieurs mots, c'est tout de même moins qualitatif qu'un modèle qui permet d'utiliser du contexte.</p>
-<p>Au vu du manque d'efficacité de cette méthode, nous avons décidé de changer de méthode pour déterminer les synonymes d'un mot.</p>
+<p>Même si les résultats ne sont pas parfaits (par exemple, l'IA génère souvent des réponses en anglais même lorsque le glossaire est en français), à cause des capacités limitées des petits modèles, ils restent globalement de bonne qualité.<br />
+C'est donc cette méthode qui a été retenue pour l'application finale.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../creation/" class="btn btn-neutral float-left" title="Création des embeddings"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../api_visualisations/" class="btn btn-neutral float-right" title="API & Visualisations">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../api_visualisations/" class="btn btn-neutral float-left" title="API & Visualisations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../inspiration/" class="btn btn-neutral float-right" title="Inspiration">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -258,10 +183,10 @@ Pour les synonymes, nous avons trouvé un corpus de 36 000 groupes de synonymes.
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../creation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../api_visualisations/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../api_visualisations/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../inspiration/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
