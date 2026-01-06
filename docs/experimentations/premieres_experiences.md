@@ -1,10 +1,12 @@
-# Choix des technologies
+# Premières expériences
+
+## Choix des technologies
 
 Pour commencer, il nous a fallu choisir une technologie à utiliser. Comme nous n'arrivions pas à faire fonctionner Word2Vec (pour des raisons techniques), nous avons initialement choisi d'utiliser un modèle basé sur des transformers, facile à lancer n'importe où grâce à Ollama. Nous avons ensuite réussi à faire fonctionner Word2Vec, et nous avons donc initialement décidé de comparer les deux.
 
 Pour Word2Vec, nous avons utilisé le corpus text8, qui contient le premier milliard de caractères de Wikipedia. L'autre modèle que nous avons utilisé est MiniLM, qui est basé sur une architecture BERT (qui est elle-même basée sur une architecture de transformers).
 
-# Tests sémantiques sur MiniLM
+## Tests sémantiques sur MiniLM
 
 Nous avons commencé par faire des tests pour voir s'il était possible de se baser sur la proximité (distance scalaire) pour trouver des relations entre les mots. Nous avons donc calculé la distance moyenne entre des groupes de synonymes, antonymes, mots associés et holonymes (relation de tout à partie).  
 Pour les synonymes, nous avons trouvé un corpus de 36 000 groupes de synonymes. Nous n'avons pas trouvé de corpus pour les autres types de mots, nous les avons donc générés par IA.
@@ -30,7 +32,7 @@ Voici les résultats:
 
 À notre grande déception, tous les types de mots ont une proximité similaire. Après réflexion, cela paraît logique, car même si la relation entre les mots est différente, ils restent proches sémantiquement.
 
-# Récupération de synonymes via Word2Vec
+## Récupération de synonymes via Word2Vec
 
 Contrairement à MiniLM, Word2Vec permet de récupérer la liste des mots qui sont proches d'un vecteur. Nous avons donc testé de trouver des synonymes avec la méthode suivante : on part d'un (ou plusieurs) mot(s), on les embed (c'est-à-dire les convertit en vecteur), on fait la moyenne des vecteurs obtenus, puis on récupère la liste des mots les plus proches de ce vecteur.
 
