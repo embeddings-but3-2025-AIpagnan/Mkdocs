@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>parser - embedding</title>
+    <title>Parser - embedding</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "parser";
+        var mkdocs_page_name = "Parser";
         var mkdocs_page_input_path = "parser.md";
         var mkdocs_page_url = null;
       </script>
@@ -91,7 +91,9 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">parser</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Parser</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <ul>
@@ -113,7 +115,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Application</li>
-      <li class="breadcrumb-item active">parser</li>
+      <li class="breadcrumb-item active">Parser</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -122,7 +124,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="parser">Parser</h1>
+<p>La suite de la SAE se concentrera sur de l'analyse de code, c'est donc pour cela qu'il est nécessaire de détenir ce qui s'appelle un parser.
+L'action de parser se réfère à l'analyse syntaxique, c'est-à-dire mettre en évidence la structure d'un texte. Cela est utilisé dans de nombreux domaines, que ce soit dans les langues, les maths ou bien ce qui nous intéresse, la programmation.
+Dans notre cas, cela consiste à extraire les mots clés non inhérents aux langages donc définis par les utilisateurs pour ensuite relever les occurrences.</p>
+<p>Après avoir effectué des tests en utilisant les expressions régulières, ceux-ci se sont révélés non concluants car trop complexes et pas assez fiables.</p>
+<p>Nous sommes donc passés sur la bibliothèque <strong>tree-sitter</strong> permettant de réaliser notre besoin d'une manière assez simple en définissant simplement, pour chaque langage ciblé, le type de mot clé que nous souhaitons récupérer.</p>
+<p>C'est donc comme cela que nous avons pu réaliser des fonctions Python placées dans le back-end permettant de prendre un dossier de code, dans un premier temps uniquement en Java, et d'en extraire les termes métier triés par le nombre d'occurrences et donc leur probable importance. Implémentés dans l'application, cela permet de créer une base afin de remplir un glossaire.</p>
               
             </div>
           </div><footer>
