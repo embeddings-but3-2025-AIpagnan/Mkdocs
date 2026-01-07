@@ -11,6 +11,7 @@ Enfin, ce projet m'a appris à mieux m'organiser avec une équipe, à rechercher
 En tant que développeur, ce projet m'a permis de progresser dans plusieurs domaines dans lesquels je n'avais pas beaucoup d'expérience, comme la création de pipelines de déploiement continu, le développement d'applications de bureau, et évidemment l'IA. Le projet nous a aussi poussés à mener des recherches pour choisir les technologies à utiliser. Enfin, il m'a permis de m'améliorer en travail d'équipe, puisqu'il fallait coordonner les différentes parties du développement.
 
 # Malo
+
 Pour moi cette SAE fut spéciale pour plusieurs raisons, mais la principale étant son contexte. En effet, contrairement aux précédentes SAE, nous avions un client avec des besoins et des exigences. Nous avons également réellement expérimenté le développement itératif, ce qui nous a permis de mettre en application de nombreux principes collaboratifs que jusqu'à là, nous n'avions vus uniquement sur le papier.
 
 Nous avons certes pris pas mal de fausses routes, mais ces erreurs nous ont permis de progresser et nous serviront d'exemples pour ne pas les reproduire en entreprise, c'est en cela que cette SAE se démarque des précédentes. En plus de la progression technique, elle nous a également apporté une grande expérience collaborative.
