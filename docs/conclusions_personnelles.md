@@ -19,3 +19,5 @@ En outre, ce projet a été une véritable aubaine en ce qui concerne le travail
 Pour conclure, ce projet m’a fait progresser sur de nombreux points, allant de ma maîtrise de l’informatique au travail en équipe. Même si certains aspects ont pu être délicats à appréhender au premier abord, ces difficultés ont rapidement été surmontées, donnant ainsi le projet tel qu’il est à l’heure actuelle.
 
 # Maxime
+
+Ce projet m’a personnellement permis de découvrir des facettes du développement que je n’avais encore jamais explorées. Le fait de travailler sur des technologies et des frameworks modernes est très formateur et permet de se préparer sur des technologies qui sont utilisées dans des entreprises qui sont modernes et investies dans les technologies informatiques. En ce qui concerne l'organisation, la SAE m'a appris à mieux gérer mon temps et à prioriser les tâches en fonction des besoins actuels. Les retours réguliers avec nos clients ont été vraiment utiles et ont permis de ne pas s'égarer quand on avait une idée biaisée de ce que voulait le client. Pour conclure, le projet est très formateur sur beaucoup de points, notamment via les technologies qu'on utilise.
