@@ -59,3 +59,7 @@ En synthèse, les choix technologiques opérés garantissent une application :
 - et offrant une **expérience utilisateur moderne, fluide et maîtrisée**.
 
 Cette architecture constitue ainsi une base solide, durable et adaptée aux besoins actuels comme aux évolutions futures du projet.
+
+## Schéma
+![architecture](images/architecture.png "architecture")
+Au final, l'application peut être représentée par ce schéma d'architecture
