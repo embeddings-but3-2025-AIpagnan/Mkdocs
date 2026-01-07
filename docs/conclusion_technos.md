@@ -62,4 +62,5 @@ Cette architecture constitue ainsi une base solide, durable et adaptée aux beso
 
 ## Schéma
 ![architecture](images/architecture.png "architecture")
+
 Au final, l'application peut être représentée par ce schéma d'architecture
