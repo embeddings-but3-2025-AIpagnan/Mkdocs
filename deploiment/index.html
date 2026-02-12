@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Parser - embedding</title>
+    <title>Déploiment - embedding</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Parser";
-        var mkdocs_page_input_path = "parser.md";
+        var mkdocs_page_name = "D\u00e9ploiment";
+        var mkdocs_page_input_path = "deploiment.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -89,13 +89,11 @@
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../deploiment/">Déploiment</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Déploiment</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Parser</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../parser/">Parser</a>
                   </li>
               </ul>
               <ul>
@@ -117,7 +115,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Application</li>
-      <li class="breadcrumb-item active">Parser</li>
+      <li class="breadcrumb-item active">Déploiment</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -126,19 +124,102 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="parser">Parser</h1>
-<p>La suite de la SAE se concentrera sur de l'analyse de code, c'est donc pour cela qu'il est nécessaire de détenir ce qui s'appelle un parser.
-L'action de parser se réfère à l'analyse syntaxique, c'est-à-dire mettre en évidence la structure d'un texte. Cela est utilisé dans de nombreux domaines, que ce soit dans les langues, les maths ou bien ce qui nous intéresse, la programmation.
-Dans notre cas, cela consiste à extraire les mots clés non inhérents aux langages donc définis par les utilisateurs pour ensuite relever les occurrences.</p>
-<p>Après avoir effectué des tests en utilisant les expressions régulières, ceux-ci se sont révélés non concluants car trop complexes et pas assez fiables.</p>
-<p>Nous sommes donc passés sur la bibliothèque <strong>tree-sitter</strong> permettant de réaliser notre besoin d'une manière assez simple en définissant simplement, pour chaque langage ciblé, le type de mot clé que nous souhaitons récupérer.</p>
-<p>C'est donc comme cela que nous avons pu réaliser des fonctions Python placées dans le back-end permettant de prendre un dossier de code, dans un premier temps uniquement en Java, et d'en extraire les termes métier triés par le nombre d'occurrences et donc leur probable importance. Implémentés dans l'application, cela permet de créer une base afin de remplir un glossaire.</p>
+                <p>Le projet dispose d'une pipeline CD qui permet de build automatiquement l'application pour Linux, Windows et MacOS et de publier la release dès qu'un tag de version est poussé sur Github, ou sur intervention manuelle.</p>
+<p>Voici le fichier de CD commenté:</p>
+<pre><code class="language-yml">name: publish
+
+# Quand es-ce que le CD s'active
+on:
+  push:
+    tags:
+      # Tag de version
+      - 'v*.*.*'
+  # Activation manuelle
+  workflow_dispatch:
+
+jobs:
+  build:
+    permissions:
+      contents: write
+
+    strategy:
+      fail-fast: false
+      # Toutes les plateformes sur lesquelles build
+      matrix:
+        include:
+          - platform: ubuntu-latest
+          - platform: macos-latest
+          - platform: windows-latest
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      # Cloner le repo
+      - uses: actions/checkout@v4
+
+      # Installation de node (version lts)
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      # Installation de Python et des dépendances python du projet
+      - name: setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+          cache-dependency-path: backend/requirements.txt
+      - run: pip install -r backend/requirements.txt
+
+      # Installation de Rust
+      - name: install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+     # Installation des dépendances natives de Tauri (sur ubuntu uniquement)
+      - name: install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+
+      # Installation des dépendances javascript
+      - name: install frontend dependencies
+        run: npm install
+
+      # Build du backend (compilation du python en un exécutable autonome)
+      - name: build backend
+        run: npm run build:backend
+
+      # Sign that new executable
+      - name: sign backend binary (macos only)
+        if: matrix.platform == 'macos-latest'
+        run: |
+          for bin in build/dist/backend-*; do
+            if [[ -f &quot;$bin&quot; &amp;&amp; ! -L &quot;$bin&quot; ]]; then
+              codesign --force --deep --sign - &quot;$bin&quot;
+            fi
+          done
+
+      # Build the frontend (astro)
+      - name: build frontend
+        run: npm run build:frontend
+
+      # Build et publish le projet final grâce à une action préfaite de Tauri
+      - uses: tauri-apps/tauri-action@v0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: app-v__VERSION__
+          releaseName: 'GlossAI v__VERSION__'
+          releaseDraft: false
+          prerelease: false
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../conclusions_personnelles/" class="btn btn-neutral float-right" title="Conclusions">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../conclusion_technos/" class="btn btn-neutral float-left" title="Conclusion"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -161,10 +242,10 @@ Dans notre cas, cela consiste à extraire les mots clés non inhérents aux lang
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../conclusion_technos/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../conclusions_personnelles/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../installation/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
