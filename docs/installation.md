@@ -1,12 +1,13 @@
 # Installation
 
-Si l'utilisateur souhaite créer sa propre application puis l'exécuter, il faut qu'il la compile en suivant les instructions du repo, puis il trouvera l'exécutable dans **src-tauri/target/release/bundle/appImage**.
-
 ## Linux 
-Afin d'installer l'application sur un système d'exploitation linux, il suffit de télécharger le fichier *.AppImage* de la release et de l'exécuter.
+
+Sur Linux, le projet se présente sous forme de fichier AppImage, un format qui peut être lancé sur n'importe quelle distribution linux. Pour lancer le projet, il suffit de télécharger le fichier et double-cliquer dessus.
 
 ## Windows
-Afin d'installer l'application sur un système d'exploitation linux, il suffit de télécharger le fichier *.msi* de la release et de l'exécuter.
+
+Sous Windows, le projet se présent sous forme d'un installateur MSI. Il suffit de double cliquer dessus et de suivre les instructions pour installer l'application.
 
 ## MacOS
-Afin d'installer l'application sur un système d'exploitation linux, il suffit de télécharger le fichier *.dmg* de la release et de l'exécuter.
+
+Sur MacOS, le projet se présente sous forme de fichier DMG. Pour l'installer, il faut le télécharger puis le mettre dans le dossier des applications de MacOS.

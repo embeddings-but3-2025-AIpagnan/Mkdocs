@@ -24,7 +24,10 @@ nav:
           - Front-end: front-end_technos.md
           - Intégration JS: integration-js_technos.md
           - Conclusion: conclusion_technos.md
-      - Installation: installation.md
+      - Resultats:
+          - Schéma: schema.md
+          - Déploiment: deploiment.md
+          - Installation: installation.md
       - Parser: parser.md
   - Conclusions: conclusions_personnelles.md
           
